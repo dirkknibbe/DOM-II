@@ -24,7 +24,7 @@ document.addEventListener('keydown', escKey);
 
 //copy "Let's Go!" title
 const noCopyPic = document.querySelector('.text-content h2');
-noCopyPic.addEventListener('copy', (event) => {
+noCopyPic.addEventListener('copy', () => {
     alert('10-4 copy that')
 });
 
@@ -46,26 +46,37 @@ function zoom(event) {
   el.onwheel = zoom;
 
   //scroll
-    let lastKnownScrollPosition = 0;
     let ticking = false;
-document.addEventListener('scroll', function(e) {
-  lastKnownScrollPosition = window.scrollY;
-
+document.addEventListener('scroll', function() {
   if (!ticking) {
     window.requestAnimationFrame(function() {
-      doSomething(lastKnownScrollPosition);
       ticking = false;
     });
-
     ticking = true;
   }
   console.log(`You're Scrolling!`)
 });
 
 
-//focus
-const focusHeader = document.querySelector('header');
+//click
+const clickHeader = document.querySelector('header');
 
-focusHeader.addEventListener('click', (event) => {
-  event.target.style.background = 'pink';
+clickHeader.addEventListener('click', (event) => {
+  event.target.style.background = 'lightpink';
+  
 });
+
+
+//select // couldn't figure it out
+
+
+document.addEventListener('select', function(){
+    console.log(`You've Selected something!`);
+
+});
+
+
+//resize // couldn't figure this one out either kept getting typeError textContent null
+
+
+//load // also couldn't figure this one out, tried console logging the window when it loads but didn't get anything
